@@ -33,19 +33,19 @@ Bienvenue dans votre formation Python accélérée ! Cette formation intensive s
 
 ## 📁 Structure Simplifiée
 
-### � **Jour_01-02_Fondamentaux**
+### 📁 **Jour_01-02_Fondamentaux**
 - Challenge rapide : Variables → Conditions → Boucles → Fonctions
 
 ### 📂 **Jour_03-04_Collections**
 - Challenge rapide : Listes → Dictionnaires → Manipulation de données
 
-### � **Jour_05-06_POO**
+### 📁 **Jour_05-06_POO**
 - Challenge rapide : Classes → Objets → Héritage
 
-### � **Jour_07-08_Fichiers_Erreurs**
+### 📁 **Jour_07-08_Fichiers_Erreurs**
 - Challenge rapide : Exceptions → Fichiers → Modules
 
-### � **Jour_09-10_Projet_Final**
+### 📁 **Jour_09-10_Projet_Final**
 - Application complète : Gestionnaire de tâches avec interface
 
 ## ⏰ Horaires Recommandés
