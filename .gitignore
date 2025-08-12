@@ -1,0 +1,179 @@
+# =============================================================================
+# GITIGNORE pour le Projet Formation Python 🐛
+# =============================================================================
+
+# Fichiers de solutions (à ignorer pour que les étudiants trouvent par eux-mêmes)
+**/solutions/
+**/correction/
+**/corrige/
+**/reponses/
+**/*_solution.py
+**/*_corrige.py
+**/*_correction.py
+**/*_reponse.py
+
+# Fichiers Python générés
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Environnements virtuels
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# IDEs et éditeurs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.pydevproject
+.settings/
+.metadata
+.recommenders/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*/.ipynb_checkpoints/*
+
+# Logs et données temporaires
+*.log
+logs/
+*.sqlite
+*.db
+*.tmp
+*.temp
+
+# Fichiers de données personnelles (pour éviter de commit des données sensibles)
+data/personnel/
+data/private/
+config/secret/
+*.key
+*.secret
+
+# Fichiers de backup et temporaires
+*.bak
+*.backup
+*~
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Fichiers de test générés
+test_output/
+test_results/
+test_data/temp/
+*.coverage
+.coverage
+htmlcov/
+.tox/
+.pytest_cache/
+.cache/
+
+# Fichiers CSV/JSON/XML générés lors des exercices (pour éviter l'encombrement)
+**/*_test.csv
+**/*_demo.json
+**/*_exemple.xml
+**/*_generated.*
+**/donnees_sales.csv
+**/donnees_propres.csv
+**/etudiants*.csv
+**/bibliotheque.*
+**/journal.txt
+**/application.log
+**/rapport_*.html
+
+# Dossiers de génération automatique
+Jour_*/exports/
+Jour_*/backups/
+Jour_*/logs/
+
+# Fichiers spécifiques au projet final
+Jour_09-10_Projet_Final/data/*.json
+Jour_09-10_Projet_Final/data/backups/
+Jour_09-10_Projet_Final/data/exports/
+Jour_09-10_Projet_Final/logs/
+
+# Fichiers système Windows
+*.lnk
+ehthumbs.db
+
+# Fichiers système macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+._*
+
+# Fichiers système Linux
+.directory
+.Trash-*
+
+# Fichiers de configuration locale
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Documentation générée
+docs/_build/
+docs/build/
+
+# Certificats et clés
+*.pem
+*.crt
+*.csr
+*.key
+
+# Archives et compressions
+*.zip
+*.tar.gz
+*.rar
+*.7z
+
+# Fichiers de profiling
+*.prof
+
+# =============================================================================
+# EXCEPTIONS (fichiers à garder même s'ils matchent les patterns ci-dessus)
+# =============================================================================
+
+# Garder les exemples de base pour la formation
+!**/exemple_base.py
+!**/modele_*.py
+!**/template_*.py
+
+# Garder les fichiers de configuration essentiels
+!requirements.txt
+!setup.py
+!README.md
+!docs/README.md
+
+# Garder les données d'exemple pour les exercices
+!**/data/exemples/
+!**/data/samples/
