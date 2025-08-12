@@ -1,8 +1,13 @@
 # =============================================================================
-# GITIGNORE pour le Projet Formation Python 🐛
+# GITIGNORE pour la Branche Main - Projet Formation Python 🐛
 # =============================================================================
 
-# Fichiers de solutions (à ignorer pour que les étudiants trouvent par eux-mêmes)
+# DOSSIERS DE SOLUTIONS - À IGNORER SUR MAIN
+Jour_05-06_POO/
+Jour_07-08_Fichiers_Erreurs/
+Jour_09-10_Projet_Final/
+
+# Fichiers de solutions individuels
 **/solutions/
 **/correction/
 **/corrige/
