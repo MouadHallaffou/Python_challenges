@@ -1,138 +1,128 @@
 # Challenge 1.3 - Boucles
-# Écrivez votre code ici pour résoudre les challenges A, B, C, D et E
 
 # Challenge A - Boucle for basique
-# Votre code ici...
-# - Affichent les nombres de 1 à 10
-for i in range(1,11) :
-    print(f"number: {i}")
-# - Affichent les nombres pairs de 0 à 20
-for i in range (1,21) :
-    if i%2 == 0 :
-        print(i)
-    else :
-        continue
-# - Affichent les nombres de 10 à 1 (compte à rebours)
-for i in range (10,0,-1) : 
-    print(i)
-# - Calculez la somme des nombres de 1 à 100
-j = 0
-for i in range (100) :
-    j += i
-print(j)
+
+# Affiche les nombres de 1 à 10
+for nombre in range(1, 11):
+    print(f"number: {nombre}")
+
+# Affiche les nombres pairs de 0 à 20
+for nombre in range(0, 21):
+    if nombre % 2 == 0:
+        print(nombre)
+
+# Affiche les nombres de 10 à 1 (compte à rebours)
+for nombre in range(10, 0, -1):
+    print(nombre)
+
+# Calcule la somme des nombres de 1 à 100
+somme = 0
+for nombre in range(1, 101):
+    somme += nombre
+print("la somme des nombres de 1 à 100 est: ",somme)
 
 # Challenge B - Boucle while
-# Votre code ici...
-# - Demandent un mot de passe jusqu'à ce que l'utilisateur tape "secret"
-alternative =""
-password = "s"
-while password != alternative :
-    alternative = str(input("entre le password: "))
-    if alternative != password:
-       print("Mot de passe incorrect, essayez encore!")
-print(" access autorise")
 
-# - Comptent de 0 à 50 par pas de 5
-nmbr = 50
-while i < nmbr :
-    if i%5 == 0 :
-        print(i)
-        continue
+# Demande un mot de passe jusqu'à ce que l'utilisateur tape "secret"
+mot_de_passe = "secret"
+saisie = ""
+while saisie != mot_de_passe:
+    saisie = input("Entrez le mot de passe : ")
+    if saisie != mot_de_passe:
+        print("Mot de passe incorrect, essayez encore !")
+print("Accès autorisé")
 
-# - Calculent la factorielle d'un nombre (ex: 5! = 5×4×3×2×1)
-nubr = int(input("entre le nmbr: "))
-fact = 1
-compt = nubr
-while compt > 0 :
-    fact *= compt
-    compt -= 1
-print(nubr,"!","=", fact)
+# Compte de 0 à 50 par pas de 5
+compteur = 0
+while compteur <= 50:
+    print(compteur)
+    compteur += 5
+
+# Calcule la factorielle d'un nombre
+nombre = int(input("Entrez un nombre : "))
+factorielle = 1
+compteur = nombre
+while compteur > 0:
+    factorielle *= compteur
+    compteur -= 1
+print(f"{nombre}! = {factorielle}")
 
 # Challenge C - Boucles avec break et continue
-# Votre code ici...
-# - Affichez les nombres de 1 à 20, mais :
-#   - Sautez les multiples de 3 (continue)
-#   - Arrêtez si vous atteignez 15 (break)
-for i in range(1,21):
-    if i%3==0:
-        print(i)
-        continue
-    elif i>=15 :
-        break
 
-# - Créez un menu qui tourne jusqu'à ce que l'utilisateur choisisse "Quitter"
-print("="*10,"menu","="*10)
-print("1-acceuil")
-print("2-contact")
-print("0-quitter")
-for choix in range(3) :
-    choix = int(input("choisir votre choix (ex: 1, 2, 0): "))
-    if choix == 0 :
-        print("au revoir!")
-        break
-    else :
-        print("try again")
+# Affiche les nombres de 1 à 20, saute les multiples de 3, arrête à 15
+for nombre in range(1, 21):
+    if nombre % 3 == 0:
         continue
+    if nombre >= 15:
+        break
+    print(nombre)
+
+# Menu qui tourne jusqu'à ce que l'utilisateur choisisse "Quitter"
+while True:
+    print("="*10, "Menu", "="*10)
+    print("1 - Accueil")
+    print("2 - Contact")
+    print("0 - Quitter")
+    choix = int(input("Choisissez une option (ex: 1, 2, 0): "))
+    if choix == 0:
+        print("Au revoir !")
+        break
+    else:
+        print("Option invalide, essayez encore.")
 
 # Challenge D - Itération sur chaînes
-# Votre code ici...
-# - Comptent le nombre de voyelles dans une phrase
-voiyelle = ["a","u","e","i","o","y"]
-phrase = input("entre votre phrase ici: ")
-compteur = sum(1 for lettre in phrase.lower() if lettre in voiyelle)
-print("le numbre de voiyelle dans cette phrase est: ", compteur)
 
-# - Inversent une chaîne caractère par caractère
-chaine = input('entre your chaine ici : ')
-converting = chaine[::-1]
-print(converting)
+# Compte le nombre de voyelles dans une phrase
+voyelles = "aeiouy"
+phrase = input("Entrez votre phrase ici : ")
+compteur_voyelles = sum(1 for lettre in phrase.lower() if lettre in voyelles)
+print("Le nombre de voyelles dans cette phrase est :", compteur_voyelles)
 
-# - Trouvent la position de chaque lettre 'a' dans un texte
+# Inverse une chaîne caractère par caractère
+chaine = input('Entrez votre chaîne ici : ')
+chaine_inversee = chaine[::-1]
+print(chaine_inversee)
+
+# Trouve la position de chaque lettre choisie dans un texte
 texte = input("Entrez un texte : ")
-lettre_searched = input("entre le lettre : ")
-positions = [i+1 for i, lettre in enumerate(texte) if lettre == lettre_searched]
-print("Positions de ", lettre_searched,":", positions)
+lettre_recherchee = input("Entrez la lettre à rechercher : ")
+positions = [i + 1 for i, lettre in enumerate(texte) if lettre == lettre_recherchee]
+print(f"Positions de '{lettre_recherchee}'est :", positions)
 
-# - Remplacent tous les espaces par des tirets
-phrase = input("entre votre text : ")
-phrase_tired = "-".join(phrase.split())
-print(phrase_tired)
+# Remplace tous les espaces par des tirets
+phrase = input("Entrez votre texte : ")
+phrase_tirets = "-".join(phrase.split())
+print(phrase_tirets)
 
 # Challenge E - Boucles imbriquées et patterns
-# Votre code ici...
-# 1. Triangle de nombres :
-for i in range (1, 6):
-    for j in range (i, i+1):
-        print(i)
-    print("")
 
-# 2. Pyramide d'étoiles :
-hauteur = int(input("entre la hauteur du pyramide: "))
+# 1. Triangle de nombres
+for ligne in range(1, 6):
+    print(str(ligne) * ligne)
+
+# 2. Pyramide d'étoiles
+hauteur = int(input("Entrez la hauteur de la pyramide : "))
 for i in range(1, hauteur + 1):
-    print(("*" * (2*i - 1)).center(2*hauteur - 1))
+    print(("*" * (2 * i - 1)).center(2 * hauteur - 1))
 
 # 3. Table de multiplication (de 1 à 10)
-nbr = int(input("entre le nbr de multiplucation: "))
-for i in range (1, 11):
-        print(nbr, "X", i, "=", nbr*i)
+nombre = int(input("Entrez le nombre pour la table de multiplication : "))
+for multiplicateur in range(1, 11):
+    print(f"{nombre} x {multiplicateur} = {nombre * multiplicateur}")
 
-# 4. Créez un jeu de "Plus ou Moins" :
-#    - L'ordinateur choisit un nombre entre 1 et 100
-#    - L'utilisateur devine jusqu'à ce qu'il trouve
-#    - Comptez le nombre de tentatives
-#    - Proposez de rejouer
+# 4. Jeu de 'Plus ou Moins'
 import random
 
 while True:
-    nbr = random.randint(1, 100)
-    nbr_tentatives = 0
+    nombre_secret = random.randint(1, 100)
+    tentatives = 0
     while True:
-        inputs = int(input("Entrez le nombre : "))
-        nbr_tentatives += 1
-        if nbr == inputs:
-            print("Bravo ! Vous avez réussi en", nbr_tentatives, "tentatives.")
+        proposition = int(input("Entrez le nombre : "))
+        tentatives += 1
+        if proposition == nombre_secret:
+            print(f"Bravo ! Vous avez réussi en {tentatives} tentatives.")
             break
-        elif nbr > inputs:
+        elif proposition < nombre_secret:
             print("Votre choix est trop petit.")
         else:
             print("Votre choix est trop grand.")

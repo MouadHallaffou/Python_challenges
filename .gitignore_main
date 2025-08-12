@@ -1,6 +1,21 @@
 # =============================================================================
-# GITIGNORE pour la Branche Solution - Projet Formation Python 🐛
+# GITIGNORE pour le Projet Formation Python 🐛
 # =============================================================================
+
+# Fichiers de solutions (à ignorer pour que les étudiants trouvent par eux-mêmes)
+**/solutions/
+**/correction/
+**/corrige/
+**/reponses/
+**/*_solution.py
+**/*_corrige.py
+**/*_correction.py
+**/*_reponse.py
+
+# Dossiers contenant les solutions complètes (pour la branche main uniquement)
+Jour_05-06_POO/
+Jour_07-08_Fichiers_Erreurs/
+Jour_09-10_Projet_Final/
 
 # Fichiers Python générés
 __pycache__/
@@ -59,7 +74,7 @@ logs/
 *.tmp
 *.temp
 
-# Fichiers de données personnelles
+# Fichiers de données personnelles (pour éviter de commit des données sensibles)
 data/personnel/
 data/private/
 config/secret/
@@ -85,7 +100,7 @@ htmlcov/
 .pytest_cache/
 .cache/
 
-# Fichiers CSV/JSON/XML générés lors des exercices
+# Fichiers CSV/JSON/XML générés lors des exercices (pour éviter l'encombrement)
 **/*_test.csv
 **/*_demo.json
 **/*_exemple.xml
@@ -98,18 +113,22 @@ htmlcov/
 **/application.log
 **/rapport_*.html
 
-# Fichiers système
+# Fichiers système Windows
 *.lnk
 ehthumbs.db
+
+# Fichiers système macOS
 .DS_Store
 .AppleDouble
 .LSOverride
 Icon?
 ._*
+
+# Fichiers système Linux
 .directory
 .Trash-*
 
-# Configuration locale
+# Fichiers de configuration locale
 .env.local
 .env.development.local
 .env.test.local
@@ -123,17 +142,32 @@ docs/build/
 *.pem
 *.crt
 *.csr
+*.key
 
-# Archives
+# Archives et compressions
 *.zip
 *.tar.gz
 *.rar
 *.7z
 
-# Profiling
+# Fichiers de profiling
 *.prof
 
 # =============================================================================
-# GARDER TOUS LES FICHIERS DE SOLUTIONS dans cette branche
+# EXCEPTIONS (fichiers à garder même s'ils matchent les patterns ci-dessus)
 # =============================================================================
-# (Pas de patterns d'exclusion pour les solutions ici)
+
+# Garder les exemples de base pour la formation
+!**/exemple_base.py
+!**/modele_*.py
+!**/template_*.py
+
+# Garder les fichiers de configuration essentiels
+!requirements.txt
+!setup.py
+!README.md
+!docs/README.md
+
+# Garder les données d'exemple pour les exercices
+!**/data/exemples/
+!**/data/samples/
