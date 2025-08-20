@@ -196,3 +196,109 @@ def statistiques_classe():
         "pire_note": pire_note,
         "nb_etudiants_above_moyenne": nb_etudiants_above_moyenne
     }
+
+def exporter_donnees(nom_fichier):
+    # Exporte les données en format texte
+    with open(nom_fichier, 'w') as f:
+        f.write("RAPPORT DES ÉTUDIANTS\n")
+        f.write("=" * 50 + "\n")
+        for e in etudiants:
+            f.write(f"Nom: {e['nom']}\n")
+            f.write(f"Notes: {e['notes']}\n")
+            f.write(f"Moyenne: {e['moyenne']}\n")
+            f.write("-" * 30 + "\n")
+
+def sauvegarder_fichier(nom_fichier):
+    # Sauvegarde les données dans un fichier
+    with open(nom_fichier, 'w') as f:
+        for e in etudiants:
+            f.write(f"{e['nom']},{','.join(map(str, e['notes']))}\n")
+
+def charger_fichier(nom_fichier):
+    # Charge les données depuis un fichier
+    global etudiants
+    etudiants = []
+    try:
+        with open(nom_fichier, 'r') as f:
+            for ligne in f:
+                donnees = ligne.strip().split(',')
+                nom = donnees[0]
+                notes = [float(note) for note in donnees[1:] if note]
+                moyenne = round(sum(notes) / len(notes), 2) if notes else 0
+                etudiants.append({"nom": nom, "notes": notes, "moyenne": moyenne})
+    except FileNotFoundError:
+        print(f"Fichier {nom_fichier} non trouvé.")
+
+def menu_interactif():
+    # Interface menu interactive
+    while True:
+        print("\n=== GESTIONNAIRE D'ÉTUDIANTS ===")
+        print("1. Ajouter un étudiant")
+        print("2. Supprimer un étudiant")
+        print("3. Ajouter une note")
+        print("4. Rechercher un étudiant")
+        print("5. Afficher statistiques")
+        print("6. Trier par moyenne")
+        print("7. Exporter données")
+        print("8. Sauvegarder")
+        print("9. Charger")
+        print("0. Quitter")
+        
+        choix = input("Votre choix: ")
+        
+        if choix == '1':
+            nom = input("Nom de l'étudiant: ")
+            ajouter_etudiant(nom)
+            print(f"Étudiant {nom} ajouté.")
+        elif choix == '2':
+            nom = input("Nom de l'étudiant à supprimer: ")
+            supprimer_etudiant(nom)
+            print(f"Étudiant {nom} supprimé.")
+        elif choix == '3':
+            nom = input("Nom de l'étudiant: ")
+            try:
+                note = float(input("Note (0-20): "))
+                if 0 <= note <= 20:
+                    ajouter_note(nom, note)
+                    print(f"Note {note} ajoutée à {nom}.")
+                else:
+                    print("Note invalide (0-20).")
+            except ValueError:
+                print("Veuillez entrer un nombre valide.")
+        elif choix == '4':
+            nom = input("Nom à rechercher: ")
+            etudiant = rechercher_etudiant(nom)
+            if etudiant:
+                print(f"Trouvé: {etudiant}")
+            else:
+                print("Étudiant non trouvé.")
+        elif choix == '5':
+            stats = statistiques_classe()
+            if stats:
+                print(f"Statistiques: {stats}")
+            else:
+                print("Aucune donnée disponible.")
+        elif choix == '6':
+            tries = trier_par_moyenne()
+            for e in tries:
+                print(f"{e['nom']}: {e['moyenne']}")
+        elif choix == '7':
+            fichier = input("Nom du fichier: ")
+            exporter_donnees(fichier)
+            print(f"Données exportées vers {fichier}.")
+        elif choix == '8':
+            fichier = input("Nom du fichier: ")
+            sauvegarder_fichier(fichier)
+            print(f"Données sauvegardées dans {fichier}.")
+        elif choix == '9':
+            fichier = input("Nom du fichier: ")
+            charger_fichier(fichier)
+            print(f"Données chargées depuis {fichier}.")
+        elif choix == '0':
+            print("Au revoir!")
+            break
+        else:
+            print("Choix invalide.")
+
+# Test du système
+menu_interactif()
