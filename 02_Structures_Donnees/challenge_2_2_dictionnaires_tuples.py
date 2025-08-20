@@ -1,6 +1,6 @@
 # Challenge 2.2 - Dictionnaires et Tuples
 # Votre code ici...
-    # - Créez un dictionnaire "personne" avec nom, âge, ville
+    # - Creez un dictionnaire "personne" avec nom, âge, ville
 personne = {
     "nom": "mouad",
     "age": 30,
@@ -8,24 +8,24 @@ personne = {
 }
     # - Modifiez l'âge et ajoutez la profession
 personne["age"] = 32
-personne["profession"] = "Ingénieur"
-    # - Affichez toutes les clés et valeurs
+personne["profession"] = "Ingenieur"
+    # - Affichez toutes les cles et valeurs
 def afficher_dictionnaire(personne):
     for cle, valeur in personne.items():
         print(f"{cle}: {valeur}")
 afficher_dictionnaire(personne)
-    # - Vérifiez si une clé existe
+    # - Verifiez si une cle existe
 def verifier_cle_existe(personne):
     for cle in ["nom", "age", "profession", "ville"]:
         if cle in personne:
-            print(f"La clé '{cle}' existe avec la valeur: {personne[cle]}")
+            print(f"La cle '{cle}' existe avec la valeur: {personne[cle]}")
         else:
-            print(f"La clé '{cle}' n'existe pas.")
+            print(f"La cle '{cle}' n'existe pas.")
 verifier_cle_existe(personne)
 
-# Challenge 3.1 - Lambda et fonctions d'ordre supérieur
+# Challenge 3.1 - Lambda et fonctions d'ordre superieur
 # Votre code ici...
-    # Créez un système d'inventaire de magasin :
+    # Creez un système d'inventaire de magasin :
         # - Dictionnaire produits : {"nom": {"prix": X, "stock": Y}}
         # - Fonctions : ajouter_produit, vendre_produit, restock
         # - Calcul de la valeur totale du stock
@@ -36,16 +36,16 @@ def ajouter_produit(inventaire, nom, prix, stock):
 def vendre_produit(inventaire, nom, quantite):
     if nom in inventaire and inventaire[nom]["stock"] >= quantite:
         inventaire[nom]["stock"] -= quantite
-        print(f"Vente de {quantite} unités de {nom}.")
+        print(f"Vente de {quantite} unites de {nom}.")
     else:
         print(f"Produit non disponible ou stock insuffisant.")
 
 def restock(inventaire, nom, quantite):
     if nom in inventaire:
         inventaire[nom]["stock"] += quantite
-        print(f"Restock de {quantite} unités de {nom}.")
+        print(f"Restock de {quantite} unites de {nom}.")
     else:
-        print(f"Produit {nom} non trouvé dans l'inventaire.")
+        print(f"Produit {nom} non trouve dans l'inventaire.")
 
 def calculer_valeur_totale(inventaire):
     return sum(item["prix"] * item["stock"] for item in inventaire.values())
@@ -58,7 +58,7 @@ print("========= système d'inventaire =========")
 print("*" * 20)
 
 while True:
-    print("sélectionnez une action")
+    print("selectionnez une action")
     print("1. Ajouter un produit")
     print("2. Vendre un produit")
     print("3. Restocker un produit")
@@ -67,16 +67,31 @@ while True:
     choix = input("Entrez votre choix (1-5): ")
     if choix == "1":
         nom = input("Nom du produit: ")
-        prix = float(input("Prix du produit: "))
-        stock = int(input("Quantité en stock: "))
-        ajouter_produit(inventaire, nom, prix, stock)
+        try:
+            prix = float(input("Prix du produit: "))
+            stock = int(input("Quantite en stock: "))
+            ajouter_produit(inventaire, nom, prix, stock)
+        except ValueError:
+            print("Erreur: Veuillez entrer des valeurs numeriques valides.")
     elif choix == "2":
         nom = input("Nom du produit à vendre: ")
-        quantite = int(input("Quantité à vendre: "))
+        try:
+            quantite = int(input("Quantite à vendre: "))
+            vendre_produit(inventaire, nom, quantite)
+        except ValueError:
+            print("Erreur: Veuillez entrer une quantite valide.")
+    elif choix == "3":
+        nom = input("Nom du produit à restocker: ")
+        try:
+            quantite = int(input("Quantite à ajouter: "))
+            restock(inventaire, nom, quantite)
+        except ValueError:
+            print("Erreur: Veuillez entrer une quantite valide.")
+        quantite = int(input("Quantite à vendre: "))
         vendre_produit(inventaire, nom, quantite)
     elif choix == "3":
         nom = input("Nom du produit à restocker: ")
-        quantite = int(input("Quantité à ajouter: "))
+        quantite = int(input("Quantite à ajouter: "))
         restock(inventaire, nom, quantite)
     elif choix == "4":
         print(f"Valeur totale du stock: {calculer_valeur_totale(inventaire)}")
@@ -84,17 +99,17 @@ while True:
         print("Au revoir!")
         break
     else:
-        print("Choix invalide. Veuillez réessayer.")
+        print("Choix invalide. Veuillez reessayer.")
 
 # Challenge 4.1 - Classes et objets
 # Votre code ici...
-# - Créez des tuples coordonnées (x, y)      
+# - Creez des tuples coordonnees (x, y)      
 tuple_coordonnees = (10, 20)
 # - Fonction distance entre deux points
 def calculer_distance(point1, point2):
     return ((point2[0] - point1[0]) ** 2 + (point2[1] - point1[1]) ** 2) ** 0.5
-print(f"Distance entre {tuple_coordonnees} et (0, 0): {calculer_distance(tuple_coordonnees, (0, 0))} unité(s)")  
-# - Liste d'étudiants avec (nom, note1, note2, note3)
+print(f"Distance entre {tuple_coordonnees} et (0, 0): {calculer_distance(tuple_coordonnees, (0, 0))} unite(s)")  
+# - Liste d'etudiants avec (nom, note1, note2, note3)
 etudiants = [
     ("Alice", 15, 14, 13),
     ("Bob", 12, 16, 14),
@@ -104,26 +119,24 @@ etudiants = [
 def calculer_moyenne(etudiant):
     return sum(etudiant[1:]) / len(etudiant[1:])
 moyennes = {etudiant[0]: calculer_moyenne(etudiant) for etudiant in etudiants}
-print("Moyennes des étudiants:")
+print("Moyennes des etudiants:")
 for nom, moyenne in moyennes.items():
     print(f"{nom}: {moyenne:.2f}")
 
 # Challenge 5.1 - Gestion des exceptions
-# Votre code ici...
-    # Système complet avec dictionnaires imbriqués :
-
-    # - Structure : {nom: {"tel": X, "email": Y, "adresse": Z}}
-    # - Recherche par nom, téléphone
-    # - Groupement par ville
+def exporter_contacts(annuaire, fichier):
+    try:
+        with open(fichier, mode="w", newline="") as f:
+            writer = csv.writer(f)
+            writer.writerow(["Nom", "Telephone", "Email", "Adresse"])
+            for nom, infos in annuaire.items():
+                writer.writerow([nom, infos["tel"], infos["email"], infos["adresse"]])
+        print(f"Contacts exportes avec succès vers {fichier}")
+    except Exception as e:
+        print(f"Erreur lors de l'export: {e}")
     # - Export/import CSV
 import csv 
 
-def exporter_contacts(annuaire, fichier):
-    with open(fichier, mode="w", newline="") as f:
-        writer = csv.writer(f)
-        writer.writerow(["Nom", "Téléphone", "Email", "Adresse"])
-        for nom, infos in annuaire.items():
-            writer.writerow([nom, infos["tel"], infos["email"], infos["adresse"]])
 
 def importer_contacts(fichier):
     annuaire = {}
@@ -132,7 +145,7 @@ def importer_contacts(fichier):
         for row in reader:
             nom = row["Nom"]
             annuaire[nom] = {
-                "tel": row["Téléphone"],
+                "tel": row["Telephone"],
                 "email": row["Email"],
                 "adresse": row["Adresse"]
             }
@@ -153,6 +166,9 @@ def afficher_contacts(annuaire):
     for nom, infos in annuaire.items():
         print(f"Nom: {nom}, Infos: {infos}")
 
+# Initialiser l'annuaire
+annuaire = {}
+
 print("*" * 20)
 print("========= Système d'annuaire =========")
 print("*" * 20)
@@ -167,7 +183,7 @@ while True:
     choix = input("Entrez votre choix (1-6): ")
     if choix == "1":
         nom = input("Nom du contact: ")
-        tel = input("Téléphone du contact: ")
+        tel = input("Telephone du contact: ")
         email = input("Email du contact: ")
         adresse = input("Adresse du contact: ")
         ajouter_contact(annuaire, nom, tel, email, adresse)
@@ -175,9 +191,9 @@ while True:
         nom = input("Nom du contact à rechercher: ")
         contact = rechercher_contact(annuaire, nom)
         if contact:
-            print(f"Contact trouvé: {contact}")
+            print(f"Contact trouve: {contact}")
         else:
-            print("Contact non trouvé.")
+            print("Contact non trouve.")
     elif choix == "3":
         afficher_contacts(annuaire)
     elif choix == "4":
@@ -190,4 +206,4 @@ while True:
         print("Au revoir!")
         break
     else:
-        print("Choix invalide. Veuillez réessayer.")
+        print("Choix invalide. Veuillez reessayer.")
